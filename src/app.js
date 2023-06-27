@@ -1,7 +1,6 @@
 const express = require('express');
 
 const app = express();
-const port = 8001; 
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -26,19 +25,16 @@ app.get('/course/:id', (req, res) => {
     res.json({ id: id, name: name });
 });
 
-app.post('/course'), (req, res) => {
-    let name = req.body.name;
-    res.json({ id: '2', name: "supertest"});
-    res.end();
-};
-
-app.post('/course'), (req, res) => {
+app.post('/course', (req, res) => {
     let name = req.body.name;
     res.json({ id: '2', name: name});
-};
+    res.end();
+});
 
-// app.listen(port, () => {
-//     console.log(`Example app listening on port ${port}`)
-//   })
+app.post('/course', (req, res) => {
+    let name = req.body.name;
+    res.json({ id: '2', name: name});
+});
+
 
 module.exports = app;
